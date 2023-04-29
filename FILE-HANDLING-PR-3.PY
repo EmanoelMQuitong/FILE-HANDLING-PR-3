@@ -11,15 +11,20 @@
 intro = input("Enter a line: ")
 response = input("Would you like to write more lines?: ")
 diary = open('mylife.txt', 'a')
-diary.write(intro)
+diary.write(intro), diary.write('\n')
 
-while response == 'y':
-    message = input("Enter a line: ")
+while response == 'y' and response != 'n':
+
     diary = open('mylife.txt', 'a')
-    diary.write(message)
+    message = input("Enter a line: ")
+    diary.write(message), diary.write('\n')
+
     response = input("Would you like to write more lines?: ")
 
-else:
+    if response == 'n':
+        diary.close()
+
+if response == 'n':
     diary.close()
 
             
