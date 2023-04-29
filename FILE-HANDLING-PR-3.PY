@@ -39,7 +39,7 @@ while response.lower() == 'y':              #Repeated function as long as respon
     diary = open('mylife.txt', 'a')         #Opens file mylife.txt. 
 
     print(DARKCYAN+BOLD+"Enter a line: "+END)   
-    message = input("     ")                  #Input to enter in mylife.txt, can be repeated as long as response is 'y'.
+    message = input("     ")                #Input to enter in mylife.txt, can be repeated as long as response is 'y'.
     diary.write(message), diary.write('\n') #Input that is transferred to mylife.txt.
 
     print('\n')
