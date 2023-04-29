@@ -17,10 +17,18 @@ END = '\033[0m'
 
 #Create a program that write multiple line of text contents into a text file mylife.txt.
 #Create mylife.txt. first input and response.
+
+#FIRST INPUT
 print('\n')
-intro = input("Enter a line: ")
-response = input("Would you like to write more lines?: ")
+print(DARKCYAN+BOLD+"Enter a line: "+END)
+intro = input("     ")
+
+#RESPONSE
 print('\n')
+print(DARKCYAN+BOLD+"Would you like to write more lines?: "+END)
+response = input("      ")
+print('\n')
+
 diary = open('mylife.txt', 'a')
 diary.write(intro), diary.write('\n')
 response.lower()
@@ -29,11 +37,15 @@ response.lower()
 while response.lower() == 'y':              #Repeated function as long as response is 'y'
 
     diary = open('mylife.txt', 'a')         #Opens file mylife.txt. 
-    message = input("Enter a line: ")      #Input to enter in mylife.txt, can be repeated as long as response is 'y'.
+
+    print(DARKCYAN+BOLD+"Enter a line: "+END)   
+    message = input("     ")                  #Input to enter in mylife.txt, can be repeated as long as response is 'y'.
     diary.write(message), diary.write('\n') #Input that is transferred to mylife.txt.
 
-    response = input("Would you like to write more lines?: ")   #Decides factor to repeat the process. Should only choose from 'y' and 'n'.
     print('\n')
+    print(DARKCYAN+BOLD+"Would you like to write more lines?: "+END)        #Decides factor to repeat the process. Should only choose from 'y' and 'n'.
+    response = input("      ")   
+    
     if response == 'n':                     
         diary.close()                       #Shuts down the program after repeated process 
         print(PURPLE+BOLD+"The lines you have been successfully transferred on 'mylife'.txt. The program is closing now."+END)
