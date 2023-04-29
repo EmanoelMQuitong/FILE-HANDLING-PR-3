@@ -6,36 +6,49 @@
 #Enter line: Simple is better than complex.
 #   Are there more lines y/n? n 
 
-#Create a program that write multiple line of text contents into a text file mylife.txt.
-#Create mylife.txt. If it
+#COLOR options and text manipulations:  
+BLUE = '\033[94m'
+DARKCYAN = '\033[36m'
+PURPLE = '\033[95m'
+GREEN = '\033[92m'
+RED = '\033[91m'
+BOLD = '\033[1m'
+END = '\033[0m'
 
+#Create a program that write multiple line of text contents into a text file mylife.txt.
+#Create mylife.txt. first input and response.
+print('\n')
 intro = input("Enter a line: ")
 response = input("Would you like to write more lines?: ")
+print('\n')
 diary = open('mylife.txt', 'a')
 diary.write(intro), diary.write('\n')
 response.lower()
 
-while response.lower() == 'y':
+#while loop for repeated function creating lines to mylife.txt.
+while response.lower() == 'y':              #Repeated function as long as response is 'y'
 
-    diary = open('mylife.txt', 'a')
-    message = input("Enter a line: ")
-    diary.write(message), diary.write('\n')
+    diary = open('mylife.txt', 'a')         #Opens file mylife.txt. 
+    message = input("Enter a line: ")      #Input to enter in mylife.txt, can be repeated as long as response is 'y'.
+    diary.write(message), diary.write('\n') #Input that is transferred to mylife.txt.
 
-    response = input("Would you like to write more lines?: ")
+    response = input("Would you like to write more lines?: ")   #Decides factor to repeat the process. Should only choose from 'y' and 'n'.
+    print('\n')
+    if response == 'n':                     
+        diary.close()                       #Shuts down the program after repeated process 
+        print(PURPLE+BOLD+"The lines you have been successfully transferred on 'mylife'.txt. The program is closing now."+END)
 
-    if response == 'n':
-        diary.close()
-        
     else:
-         diary.close()
+         diary.close()                      #Shuts down the program automatically whenever the response entered does not belong to 'y' and 'n'.
 
 
-if response.lower() == 'n':
+if response.lower() == 'n':                 #Shuts down the program without repetition.
     diary.close()
-    print("The lines you have been successfully transferred on 'mylife'.txt. The program is closing now.")
-else:
+    print(PURPLE+BOLD+"The lines you have been successfully transferred on 'mylife'.txt. The program is closing now."+END)
+
+else:                                       #Shuts down the program automatically whenever the response entered does not belong to 'y' and 'n'.
     diary.close()
-    print("Please choose from 'y' or 'n' only if you want to proceed. Thank you! The program is closing now.")
+    print(RED+BOLD+"Please choose from 'y' or 'n' only if you want to proceed. Thank you! The program is closing now."+END)  
 
             
 
