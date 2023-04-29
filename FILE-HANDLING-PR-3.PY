@@ -10,6 +10,18 @@
 #Create mylife.txt. If it
 intro = input("Enter a line: ")
 response = input("Would you like to write more lines?: ")
+diary = open('mylife.txt', 'a')
+diary.write(intro)
 
-if response == 'y':
-    with open('mylife.txt', 'r') as f:
+while response == 'y':
+    message = input("Enter a line: ")
+    diary = open('mylife.txt', 'a')
+    diary.write(message)
+    response = input("Would you like to write more lines?: ")
+
+else:
+    diary.close()
+
+            
+
+
