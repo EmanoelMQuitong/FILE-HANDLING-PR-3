@@ -8,12 +8,14 @@
 
 #Create a program that write multiple line of text contents into a text file mylife.txt.
 #Create mylife.txt. If it
+
 intro = input("Enter a line: ")
 response = input("Would you like to write more lines?: ")
 diary = open('mylife.txt', 'a')
 diary.write(intro), diary.write('\n')
+response.lower()
 
-while response == 'y' and response != 'n':
+while response.lower() == 'y':
 
     diary = open('mylife.txt', 'a')
     message = input("Enter a line: ")
@@ -23,9 +25,19 @@ while response == 'y' and response != 'n':
 
     if response == 'n':
         diary.close()
+        
+    else:
+         diary.close()
 
-if response == 'n':
+
+if response.lower() == 'n':
     diary.close()
+    print("The lines you have been successfully transferred on 'mylife'.txt. The program is closing now.")
+else:
+    diary.close()
+    print("Please choose from 'y' or 'n' only if you want to proceed. Thank you! The program is closing now.")
+
+            
 
             
 
